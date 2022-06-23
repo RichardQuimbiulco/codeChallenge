@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.CharacterDetailFragment">
+
+    <data>
+
+        <variable
+            name="character"
+            type="com.example.codechallenge.domain.Character" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/characterImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/character_image_height"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/content_description_character_detail_image"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_camera_alt_black" />
+
+            <TextView
+                android:id="@+id/characterName"
+                style="@style/CharacterDetailSectionName"
+                android:gravity="center"
+                android:text="@{character.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/characterImage"
+                tools:text="Ironman" />
+
+            <TextView
+                android:id="@+id/characterStatusLabel"
+                style="@style/CharacterDetailHeaderSectionTitle"
+                android:layout_marginBottom="@dimen/margin_bottom_character"
+                android:text="@{character.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/characterName"
+                tools:text="@string/description" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

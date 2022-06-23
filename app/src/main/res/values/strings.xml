@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">codeChallenge</string>
+    <string name="content_description_character_image">Character poster item</string>
+    <string name="content_description_character_detail_image">Character poster item</string>
+    <string name="description">Description</string>
+</resources>
