@@ -19,23 +19,5 @@ fun CharacterResponseServer.toCharacterDomain(): Character = Character(
     image = data.results[0].thumbnail?.path.plus(".").plus(data.results[0].thumbnail?.extension),
     description = data.results[0].description,
 )
-/*it.run {
-    Character(
-        id,
-        name,
-        description,
-        it.thumbnail?.path.plus(".").plus(it.thumbnail?.extension)
-    )
-}
-}*/
 
-/*fun OriginServer.toOriginDomain() = OriginEntity(
-    name,
-    url
-)
-
-fun LocationServer.toLocationDomain() = LocationEntity(
-    name,
-    url
-)*/
 
