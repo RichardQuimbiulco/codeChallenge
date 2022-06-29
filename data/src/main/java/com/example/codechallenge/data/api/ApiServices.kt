@@ -1,7 +1,8 @@
-package com.example.codechallenge.framework.requestmanager
+package com.example.codechallenge.data.api
 
 import com.example.codechallenge.framework.requestmanager.ApiConstants.ENDPOINT_CHARACTER
 import com.example.codechallenge.framework.requestmanager.ApiConstants.ENDPOINT_CHARACTERS
+import com.example.codechallenge.framework.requestmanager.CharacterResponseServer
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

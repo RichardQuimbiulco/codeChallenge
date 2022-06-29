@@ -1,6 +1,7 @@
-package com.example.codechallenge.framework.requestmanager
+package com.example.codechallenge.data.api
 
 import com.example.codechallenge.domain.Character
+import com.example.codechallenge.framework.requestmanager.CharacterResponseServer
 
 fun CharacterResponseServer.toCharacterDomainList(): List<Character> = data.results.map {
     it.run {

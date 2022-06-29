@@ -6,8 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
-abstract class BaseRequest<T: Any>(
-    var baseUrl: String
+abstract class BaseRequest<T : Any>(
+    private var baseUrl: String
 ) {
 
     private val okHttpClient: OkHttpClient = HttpLoggingInterceptor().run {
@@ -15,7 +15,7 @@ abstract class BaseRequest<T: Any>(
         OkHttpClient.Builder().addInterceptor(this).build()
     }
 
-    inline fun <reified T:Any> getService(): T =
+    inline fun <reified T : Any> getService(): T =
         buildRetrofit().run {
             create(T::class.java)
         }
@@ -28,5 +28,4 @@ abstract class BaseRequest<T: Any>(
         .build()
 }
 
-class CharacterRequest(baseUrl: String): BaseRequest<CharacterService>(baseUrl)
 

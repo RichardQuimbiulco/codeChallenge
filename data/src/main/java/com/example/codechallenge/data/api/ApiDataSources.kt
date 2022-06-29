@@ -1,7 +1,9 @@
-package com.example.codechallenge.framework.requestmanager
+package com.example.codechallenge.data.api
 
 import com.example.codechallenge.data.RemoteCharacterDataSource
 import com.example.codechallenge.domain.Character
+import com.example.codechallenge.framework.requestmanager.ApiConstants
+import com.example.codechallenge.framework.requestmanager.CharacterResponseServer
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

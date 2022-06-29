@@ -13,11 +13,11 @@ import com.example.codechallenge.presentation.viewmodel.CharacterListViewModel
 import com.example.codechallenge.R
 import com.example.codechallenge.adapters.CharacterGridAdapter
 import com.example.codechallenge.adapters.CharacterListener
+import com.example.codechallenge.data.api.CharacterRequest
 import com.example.codechallenge.framework.requestmanager.ApiConstants.BASE_API_URL
 import com.example.codechallenge.databinding.FragmentCharacterListBinding
 import com.example.codechallenge.di.CharacterListComponent
 import com.example.codechallenge.di.CharacterListModule
-import com.example.codechallenge.framework.requestmanager.CharacterRequest
 import com.example.codechallenge.utils.app
 import com.example.codechallenge.utils.getViewModel
 import com.example.codechallenge.utils.setItemDecorationSpacing

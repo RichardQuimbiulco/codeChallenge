@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.example.codechallenge.presentation.viewmodel.CharacterDetailViewModel
 import com.example.codechallenge.R
+import com.example.codechallenge.data.api.CharacterRequest
 import com.example.codechallenge.databinding.FragmentCharacterDetailBinding
 import com.example.codechallenge.di.CharacterDetailComponent
 import com.example.codechallenge.di.CharacterDetailModule
 import com.example.codechallenge.framework.requestmanager.ApiConstants
-import com.example.codechallenge.framework.requestmanager.CharacterRequest
 import com.example.codechallenge.presentation.Event
 import com.example.codechallenge.utils.app
 import com.example.codechallenge.utils.bindImageUrl
