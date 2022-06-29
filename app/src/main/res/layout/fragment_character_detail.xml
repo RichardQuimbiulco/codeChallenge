@@ -8,7 +8,7 @@
 
         <variable
             name="character"
-            type="com.example.codechallenge.domain.Character" />
+            type="com.example.codechallenge.model.Character" />
     </data>
 
     <androidx.core.widget.NestedScrollView

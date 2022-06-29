@@ -1,7 +1,7 @@
 package com.example.codechallenge.usecases
 
-import com.example.codechallenge.data.CharacterRepository
-import com.example.codechallenge.domain.Character
+import com.example.codechallenge.model.Character
+import com.example.codechallenge.repository.CharacterRepository
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.given
 import io.reactivex.Single
@@ -12,23 +12,23 @@ import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class GetAllCharacterUserCaseTest {
+class GetDetailCharacterUseCaseTest {
 
     @Mock
     private lateinit var characterRepository: CharacterRepository
 
-    private lateinit var getAllCharacterUseCase: GetAllCharacterUseCase
+    private lateinit var getDetailCharacterUseCase: GetDetailCharacterUseCase
 
     @Before
     fun setup() {
-        getAllCharacterUseCase = GetAllCharacterUseCase(characterRepository)
+        getDetailCharacterUseCase = GetDetailCharacterUseCase(characterRepository)
     }
 
     @Test
-    fun `getAllCharacterUseCase returns a list of characters`() {
-        val expectedResult = listOf(mockedCharacter.copy(id = 1))
-        given(characterRepository.getAllCharacters(any())).willReturn(Single.just(expectedResult))
-        getAllCharacterUseCase.invoke(1).test().assertComplete().assertNoErrors()
+    fun `getDetailCharacterUseCase returns a single characters`() {
+        val expectedResult = mockedCharacter.copy(id = 1)
+        given(characterRepository.getCharacterById(any())).willReturn(Single.just(expectedResult))
+        getDetailCharacterUseCase.invoke(1).test().assertComplete().assertNoErrors()
             .assertValue(expectedResult)
     }
 

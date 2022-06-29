@@ -1,6 +1,6 @@
-package com.example.codechallenge.usecases.di
+package com.example.codechallenge.di
 
-import com.example.codechallenge.data.CharacterRepository
+import com.example.codechallenge.repository.CharacterRepository
 import com.example.codechallenge.usecases.GetAllCharacterUseCase
 import com.example.codechallenge.usecases.GetDetailCharacterUseCase
 import dagger.Module

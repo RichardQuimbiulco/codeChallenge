@@ -1,8 +1,8 @@
 package com.example.codechallenge.data.di
 
-import com.example.codechallenge.data.RemoteCharacterDataSource
 import com.example.codechallenge.data.api.CharacterRequest
 import com.example.codechallenge.data.api.CharacterRetrofitDataSource
+import com.example.codechallenge.data.datasource.RemoteCharacterDataSource
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

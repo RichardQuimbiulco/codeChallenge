@@ -1,6 +1,8 @@
 package com.example.codechallenge.data
 
-import com.example.codechallenge.domain.Character
+import com.example.codechallenge.data.datasource.RemoteCharacterDataSource
+import com.example.codechallenge.data.repository.CharacterRepositoryImpl
+import com.example.codechallenge.model.Character
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.given
 import io.reactivex.Single
@@ -16,11 +18,12 @@ class CharacterRepositoryTest {
     @Mock
     private lateinit var remoteCharacterDataSource: RemoteCharacterDataSource
 
-    private lateinit var characterRepository: CharacterRepository
+    private lateinit var characterRepository: CharacterRepositoryImpl
 
     @Before
     fun setup() {
-        characterRepository = CharacterRepository(remoteCharacterDataSource)
+        characterRepository =
+            CharacterRepositoryImpl(remoteCharacterDataSource)
     }
 
     @Test

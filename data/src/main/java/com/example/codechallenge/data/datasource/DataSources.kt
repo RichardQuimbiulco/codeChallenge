@@ -1,6 +1,6 @@
-package com.example.codechallenge.data
+package com.example.codechallenge.data.datasource
 
-import com.example.codechallenge.domain.Character
+import com.example.codechallenge.model.Character
 import io.reactivex.Single
 
 interface RemoteCharacterDataSource {

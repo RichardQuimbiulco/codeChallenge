@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.codechallenge.R
 import com.example.codechallenge.databinding.ItemGridCharacterBinding
-import com.example.codechallenge.domain.Character
+import com.example.codechallenge.model.Character
 import com.example.codechallenge.utils.bindImageUrl
 import com.example.codechallenge.utils.bindingInflate
 import kotlinx.android.synthetic.main.item_grid_character.view.character_image

@@ -1,7 +1,7 @@
 package com.example.codechallenge.usecases
 
-import com.example.codechallenge.data.CharacterRepository
-import com.example.codechallenge.domain.Character
+import com.example.codechallenge.model.Character
+import com.example.codechallenge.repository.CharacterRepository
 import io.reactivex.Single
 
 class GetAllCharacterUseCase(

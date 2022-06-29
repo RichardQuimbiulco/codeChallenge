@@ -42,9 +42,8 @@ androidExtensions {
 dependencies {
 
     //Project
-    implementation project(":domain")
     implementation project(":data")
-    implementation project(":usecases")
+    implementation project(':domainLayer')
     implementation project(":framework:requestmanager")
 
     //Kotlin
