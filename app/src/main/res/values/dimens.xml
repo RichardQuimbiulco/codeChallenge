@@ -4,4 +4,7 @@
     <dimen name="list_item_padding">12dp</dimen>
     <dimen name="character_image_height">512dp</dimen>
     <dimen name="margin_bottom_character">15dp</dimen>
+    <dimen name="iv_margin_top">8dp</dimen>
+    <dimen name="cv_corner_radius">12dp</dimen>
+    <dimen name="cv_card_elevation">2dp</dimen>
 </resources>

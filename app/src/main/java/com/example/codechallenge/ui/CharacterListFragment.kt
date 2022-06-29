@@ -22,7 +22,8 @@ import com.example.codechallenge.utils.app
 import com.example.codechallenge.utils.getViewModel
 import com.example.codechallenge.utils.setItemDecorationSpacing
 import com.example.codechallenge.utils.showLongToast
-import kotlinx.android.synthetic.main.fragment_character_list.*
+import kotlinx.android.synthetic.main.fragment_character_list.rvCharacterList
+import kotlinx.android.synthetic.main.fragment_character_list.srwCharacterList
 
 class CharacterListFragment : Fragment() {
 
