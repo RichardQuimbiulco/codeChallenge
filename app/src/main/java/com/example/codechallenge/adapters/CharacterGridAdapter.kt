@@ -2,20 +2,18 @@ package com.example.codechallenge.adapters
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.codechallenge.BR
 import com.example.codechallenge.R
 import com.example.codechallenge.databinding.ItemGridCharacterBinding
-import com.example.codechallenge.model.Character
-import com.example.codechallenge.utils.bindImageUrl
+import com.example.codechallenge.presentation.itemViewModel.ItemViewModel
 import com.example.codechallenge.utils.bindingInflate
-import kotlinx.android.synthetic.main.item_grid_character.view.character_image
 
-class CharacterGridAdapter(private val clickListener: CharacterListener) :
-RecyclerView.Adapter<CharacterGridAdapter.CharacterGridViewHolder>() {
+class CharacterGridAdapter : RecyclerView.Adapter<CharacterGridAdapter.CharacterGridViewHolder>() {
 
-    private val characterList: MutableList<Character> = mutableListOf()
+    private var characterList: MutableList<ItemViewModel> = mutableListOf()
 
-    fun addData(newData: List<Character>) {
-        characterList.addAll(newData)
+    fun addData(newData: List<ItemViewModel>?) {
+        characterList.addAll(newData ?: emptyList())
         notifyDataSetChanged()
     }
 
@@ -26,29 +24,16 @@ RecyclerView.Adapter<CharacterGridAdapter.CharacterGridViewHolder>() {
 
     override fun getItemCount() = characterList.size
 
-    override fun getItemId(position: Int): Long = characterList[position].id.toLong()
-
     override fun onBindViewHolder(holder: CharacterGridViewHolder, position: Int) {
-        holder.bind(characterList[position], clickListener)
+        holder.bind(characterList[position])
     }
 
     class CharacterGridViewHolder(
         private val dataBinding: ItemGridCharacterBinding
     ) : RecyclerView.ViewHolder(dataBinding.root) {
 
-        fun bind(item: Character, clickListener: CharacterListener) {
-            dataBinding.character = item
-            dataBinding.clickListener = clickListener
-            itemView.character_image.bindImageUrl(
-                url = item.image,
-                placeholder = R.drawable.ic_camera_alt_black,
-                errorPlaceholder = R.drawable.ic_broken_image_black
-            )
+        fun bind(itemViewModel: ItemViewModel) {
+            dataBinding.setVariable(BR.itemViewModel, itemViewModel)
         }
-
     }
-}
-
-class CharacterListener(val clickListener: (characterId: Int) -> Unit) {
-    fun onClick(character: Character) = clickListener(character.id)
 }

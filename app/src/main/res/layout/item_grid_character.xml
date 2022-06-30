@@ -6,12 +6,9 @@
     <data>
 
         <variable
-            name="character"
-            type="com.example.codechallenge.model.Character" />
+            name="itemViewModel"
+            type="com.example.codechallenge.presentation.itemViewModel.CharacterViewModel" />
 
-        <variable
-            name="clickListener"
-            type="com.example.codechallenge.adapters.CharacterListener" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -23,13 +20,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{()->clickListener.onClick(character)}"
+            android:onClick="@{()->itemViewModel.onClick(itemViewModel.id)}"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/character_image"
                 style="@style/CharacterGridItemImage"
                 android:contentDescription="@string/content_description_character_image"
+                app:imageSrc="@{itemViewModel.image}"
                 app:layout_constraintBottom_toBottomOf="@id/character_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +37,7 @@
             <TextView
                 android:id="@+id/character_name"
                 style="@style/CharacterListItemName"
-                android:text="@{character.name}"
+                android:text="@{itemViewModel.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

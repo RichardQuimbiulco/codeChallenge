@@ -3,8 +3,9 @@ package com.example.codechallenge.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.codechallenge.model.Character
 import com.example.codechallenge.presentation.Event
+import com.example.codechallenge.presentation.itemViewModel.ItemViewModel
+import com.example.codechallenge.presentation.itemViewModel.toCharacterViewModelList
 import com.example.codechallenge.usecases.GetAllCharacterUseCase
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -16,6 +17,9 @@ class CharacterListViewModel(
     private val disposable = CompositeDisposable()
     private val _events = MutableLiveData<Event<CharacterListNavigation>>()
     val events: LiveData<Event<CharacterListNavigation>> get() = _events
+
+    private val _navigateCharacterDetail = MutableLiveData<Int>()
+    val navigateCharacterDetail: LiveData<Int> get() = _navigateCharacterDetail
 
     private var offset = 0
     private var isLastPage = false
@@ -58,14 +62,25 @@ class CharacterListViewModel(
                     if (characterList.size < PAGE_SIZE) {
                         isLastPage = true
                     }
-                    _events.value = Event(CharacterListNavigation.HideLoading)
-                    _events.value = Event(CharacterListNavigation.ShowCharacterList(characterList))
+                    _events.value = Event(
+                        CharacterListNavigation.ShowCharacterList(
+                            characterList.toCharacterViewModelList(::navigateToCharacterDetail)
+                        )
+                    )
                 }, { error ->
                     isLastPage = true
                     _events.value = Event(CharacterListNavigation.HideLoading)
                     _events.value = Event(CharacterListNavigation.ShowCharacterError(error))
                 })
         )
+    }
+
+    private fun navigateToCharacterDetail(characterId: Int) {
+        _navigateCharacterDetail.value = characterId
+    }
+
+    fun navigateToCharacterDetailComplete() {
+        _navigateCharacterDetail.value = -1
     }
 
     private fun isInFooter(
@@ -93,7 +108,7 @@ class CharacterListViewModel(
 
     sealed class CharacterListNavigation {
         data class ShowCharacterError(val error: Throwable) : CharacterListNavigation()
-        data class ShowCharacterList(val characterList: List<Character>) :
+        data class ShowCharacterList(val characterList: List<ItemViewModel>) :
             CharacterListNavigation()
 
         object HideLoading : CharacterListNavigation()

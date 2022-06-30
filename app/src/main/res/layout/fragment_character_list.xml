@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.CharacterListFragment">
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.codechallenge.presentation.viewmodel.CharacterListViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -22,6 +28,7 @@
                 android:id="@+id/rvCharacterList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:itemViewModels="@{viewModel.events}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="2"
                 tools:itemCount="12"
