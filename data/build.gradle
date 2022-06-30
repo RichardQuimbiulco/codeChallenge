@@ -25,7 +25,7 @@ android {
 
 dependencies {
 
-    implementation project(":domainLayer")
+    implementation project(':domain')
     implementation project(":framework:requestmanager")
 
     implementation kotlinLib

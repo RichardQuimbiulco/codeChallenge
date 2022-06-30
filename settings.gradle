@@ -16,4 +16,4 @@ rootProject.name = "codeChallenge"
 include ':app'
 include ':data'
 include ':framework:requestmanager'
-include ':domainLayer'
+include ':domain'
